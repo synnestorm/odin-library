@@ -143,4 +143,9 @@ const bookThree = new Book(
   true,
 );
 
-console.log(bookThree.genre);
+// function for creating books + push into array
+
+function addBookToLibrary() {
+  myLibrary.push(bookOne);
+}
+addBookToLibrary();
