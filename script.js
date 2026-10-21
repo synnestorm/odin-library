@@ -174,6 +174,7 @@ function displayBooks() {
   for (const element of myLibrary) {
     const card = document.createElement("div");
     card.className = "book-card";
+    card.dataset.id = element.id;
     bookContainer.appendChild(card);
 
     const title = document.createElement("h2");
