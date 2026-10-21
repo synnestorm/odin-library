@@ -62,10 +62,9 @@ const read = document.createElement("label");
 read.textContent = "Read: ";
 read.setAttribute("for", "read");
 const readInput = document.createElement("input");
-readInput.type = "radio";
+readInput.type = "checkbox";
 readInput.name = "read";
 readInput.id = "read";
-read.required = true;
 
 const addBtn = document.createElement("button");
 addBtn.textContent = "Add Book";
@@ -100,6 +99,20 @@ exitBtn.addEventListener("click", () => {
 
 newBtn.addEventListener("click", () => {
   dialog.showModal();
+});
+
+addBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  let title = titleInput.value;
+  let author = authorInput.value;
+  let year = Number(yearInput.value);
+  let genre = genreInput.value;
+  let read = readInput.checked;
+  let newBooks = new Book(title, author, year, genre, read);
+
+  addBookToLibrary(newBooks);
+  dialog.close();
 });
 
 const bookContainer = document.createElement("div");
@@ -145,7 +158,9 @@ const bookThree = new Book(
 
 // function for creating books + push into array
 
-function addBookToLibrary() {
-  myLibrary.push(bookOne);
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }
-addBookToLibrary();
+addBookToLibrary(bookOne);
+addBookToLibrary(bookTwo);
+addBookToLibrary(bookThree);
