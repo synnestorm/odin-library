@@ -110,15 +110,16 @@ const myLibrary = [];
 
 // function object constructor:
 
-function Library(title, author, year, genre, read) {
+function Book(title, author, year, genre, read) {
   this.title = title;
   this.author = author;
   this.year = year;
   this.genre = genre;
   this.read = read;
+  this.id = self.crypto.randomUUID();
 }
 
-const bookOne = new Library(
+const bookOne = new Book(
   "The Caretaker",
   "Marcus Kliewer",
   2026,
@@ -126,7 +127,7 @@ const bookOne = new Library(
   false,
 );
 
-const bookTwo = new Library(
+const bookTwo = new Book(
   "Dune Messiah",
   "Frank Herbert",
   1969,
@@ -134,10 +135,12 @@ const bookTwo = new Library(
   true,
 );
 
-const bookThree = new Library(
+const bookThree = new Book(
   "Dr. Jekyll and Mr. Hyde",
   "Robert Louis Stevenson",
   1886,
   "Horror",
   true,
 );
+
+console.log(bookThree.genre);
