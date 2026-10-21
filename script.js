@@ -115,10 +115,6 @@ addBtn.addEventListener("click", (event) => {
   dialog.close();
 });
 
-const bookContainer = document.createElement("div");
-bookContainer.className = "book-container";
-container.appendChild(bookContainer);
-
 const myLibrary = [];
 
 // function object constructor:
@@ -164,3 +160,44 @@ function addBookToLibrary(book) {
 addBookToLibrary(bookOne);
 addBookToLibrary(bookTwo);
 addBookToLibrary(bookThree);
+
+// for loop for book elements
+
+const bookContainer = document.createElement("div");
+bookContainer.className = "book-container";
+container.appendChild(bookContainer);
+
+for (const element of myLibrary) {
+  const card = document.createElement("div");
+  card.className = "book-card";
+  bookContainer.appendChild(card);
+
+  const title = document.createElement("h2");
+  title.className = "book-title";
+  title.textContent = element.title;
+  card.appendChild(title);
+
+  const author = document.createElement("p");
+  author.className = "book-author";
+  author.textContent = element.author;
+  card.appendChild(author);
+
+  const year = document.createElement("p");
+  year.className = "book-year";
+  year.textContent = element.year;
+  card.appendChild(year);
+
+  const genre = document.createElement("p");
+  genre.className = "book-genre";
+  genre.textContent = element.genre;
+  card.appendChild(genre);
+
+  const readStatus = document.createElement("p");
+  readStatus.className = "read-status";
+  if (element.read === true) {
+    readStatus.textContent = "Read!";
+  } else {
+    readStatus.textContent = "Not read!";
+  }
+  card.appendChild(readStatus);
+}
