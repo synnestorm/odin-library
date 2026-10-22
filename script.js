@@ -1,16 +1,18 @@
 // DOM manipulation:
 const container = document.getElementById("container");
 const heading = document.createElement("h1");
-heading.textContent = "Storm Library";
+heading.textContent = "Odin Library";
 heading.className = "main-heading";
 
 const newBtn = document.createElement("button");
-newBtn.textContent = "New Book";
+newBtn.className = "new-book";
+newBtn.textContent = "+ Add New Book";
 
 const dialog = document.createElement("dialog");
 dialog.id = "my-dialog";
 const exitBtn = document.createElement("button");
-exitBtn.textContent = "Cancel";
+exitBtn.textContent = "⨉";
+exitBtn.className = "dialog-btns";
 
 const newBookForm = document.createElement("form");
 newBookForm.className = "book-form";
@@ -23,6 +25,7 @@ titleInput.placeholder = "Dune";
 titleInput.type = "text";
 titleInput.name = "title";
 titleInput.id = "title";
+titleInput.maxLength = "25";
 titleInput.required = true;
 
 const newAuthor = document.createElement("label");
@@ -33,6 +36,7 @@ authorInput.placeholder = "Frank Herbert";
 authorInput.type = "text";
 authorInput.name = "author";
 authorInput.id = "author";
+authorInput.maxLength = "25";
 authorInput.required = true;
 
 const newYear = document.createElement("label");
@@ -56,7 +60,11 @@ genreInput.placeholder = "Science Fiction";
 genreInput.type = "text";
 genreInput.name = "genre";
 genreInput.id = "genre";
+genreInput.maxLength = "25";
 genreInput.required = true;
+
+const checkboxDiv = document.createElement("div");
+checkboxDiv.className = "checkbox-div";
 
 const read = document.createElement("label");
 read.textContent = "Read: ";
@@ -68,6 +76,7 @@ readInput.id = "read";
 
 const addBtn = document.createElement("button");
 addBtn.textContent = "Add Book";
+addBtn.className = "dialog-btns";
 addBtn.type = "submit";
 
 // appending main content:
@@ -86,8 +95,9 @@ newBookForm.appendChild(newYear);
 newBookForm.appendChild(yearInput);
 newBookForm.appendChild(newGenre);
 newBookForm.appendChild(genreInput);
-newBookForm.appendChild(read);
-newBookForm.appendChild(readInput);
+newBookForm.appendChild(checkboxDiv);
+checkboxDiv.appendChild(read);
+checkboxDiv.appendChild(readInput);
 newBookForm.appendChild(addBtn);
 dialog.appendChild(exitBtn);
 
@@ -131,11 +141,11 @@ function Book(title, author, year, genre, read) {
 }
 
 const bookOne = new Book(
-  "The Caretaker",
-  "Marcus Kliewer",
-  2026,
+  "The Only One Left",
+  "Riley Sager",
+  2023,
   "Thriller",
-  false,
+  true,
 );
 
 const bookTwo = new Book(
@@ -204,9 +214,11 @@ function displayBooks() {
     const readStatus = document.createElement("p");
     readStatus.className = "read-status";
     if (element.read === true) {
-      readStatus.textContent = "Read!";
+      readStatus.textContent = "Read ✓";
+      readStatus.style.color = "green";
     } else {
-      readStatus.textContent = "Not read!";
+      readStatus.textContent = "Not read ✗";
+      readStatus.style.color = "red";
     }
     card.appendChild(readStatus);
 
