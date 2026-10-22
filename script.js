@@ -91,17 +91,9 @@ newBookForm.appendChild(readInput);
 newBookForm.appendChild(addBtn);
 dialog.appendChild(exitBtn);
 
-// Button eventListeners:
+// Form and button eventListeners:
 
-exitBtn.addEventListener("click", () => {
-  dialog.close();
-});
-
-newBtn.addEventListener("click", () => {
-  dialog.showModal();
-});
-
-addBtn.addEventListener("click", (event) => {
+newBookForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let title = titleInput.value;
@@ -115,6 +107,14 @@ addBtn.addEventListener("click", (event) => {
   displayBooks();
   newBookForm.reset();
   dialog.close();
+});
+
+exitBtn.addEventListener("click", () => {
+  dialog.close();
+});
+
+newBtn.addEventListener("click", () => {
+  dialog.showModal();
 });
 
 const myLibrary = [];
@@ -169,6 +169,10 @@ const bookContainer = document.createElement("div");
 bookContainer.className = "book-container";
 container.appendChild(bookContainer);
 
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
 function displayBooks() {
   bookContainer.innerHTML = "";
   for (const element of myLibrary) {
@@ -220,6 +224,16 @@ function displayBooks() {
       }
     });
     card.appendChild(removeBtn);
+
+    // toggle read
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "toggle-btn";
+    toggleBtn.textContent = "Toggle Read";
+    toggleBtn.addEventListener("click", () => {
+      element.toggleRead();
+      displayBooks();
+    });
+    card.appendChild(toggleBtn);
   }
 }
 
