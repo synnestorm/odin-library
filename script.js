@@ -205,6 +205,21 @@ function displayBooks() {
       readStatus.textContent = "Not read!";
     }
     card.appendChild(readStatus);
+
+    // remove specific books
+    const removeBtn = document.createElement("button");
+    removeBtn.className = "remove-btn";
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener("click", () => {
+      const removeBook = myLibrary.findIndex(
+        (book) => book.id === card.dataset.id,
+      );
+      if (removeBook !== -1) {
+        myLibrary.splice(removeBook, 1);
+        displayBooks();
+      }
+    });
+    card.appendChild(removeBtn);
   }
 }
 
