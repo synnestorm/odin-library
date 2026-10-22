@@ -2,14 +2,112 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: dimgrey;
+  background-color: #f7f4ee;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: #24231f;
 }
 
 dialog {
   width: 100%;
   max-width: 350px;
+  height: 390px;
+  background-color: #f0ebe2;
+  border: 2px solid #b89b65;
+}
+
+label {
+  font-family: "Sansation";
+  font-size: 18px;
 }
 
 input {
   width: 100%;
+  max-width: 340px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.checkbox-div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  gap: 4px;
+  width: fit-content;
+}
+
+input[type="checkbox"] {
+  margin: 5px;
+}
+
+.dialog-btns {
+  margin-top: 20px;
+}
+
+h1 {
+  font-family: "Cormorant", Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Sansation", "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.book-card {
+  width: 100%;
+  max-width: 250px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #efe9de;
+  border: 1px solid #b89b65;
+  transition: 0.3s;
+}
+
+.book-card:hover {
+  border: 1px solid #ee6c4d;
+}
+
+button {
+  background-color: #b89b65;
+  color: #f7f4ee;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.new-book {
+  padding: 20px;
+  font-family: "Sansation";
+  font-size: 20px;
+  min-width: 80px;
+  color: #24231f;
+  background-color: #f7f4ee;
+  border: 1px solid #b89b65;
+  transition: 0.3s;
+}
+
+.new-book:hover {
+  border: 1px solid #ee6c4d;
 }
