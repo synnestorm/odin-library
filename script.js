@@ -96,12 +96,12 @@ dialog.appendChild(exitBtn);
 newBookForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  let title = titleInput.value;
-  let author = authorInput.value;
-  let year = Number(yearInput.value);
-  let genre = genreInput.value;
-  let read = readInput.checked;
-  let newBooks = new Book(title, author, year, genre, read);
+  const title = titleInput.value;
+  const author = authorInput.value;
+  const year = Number(yearInput.value);
+  const genre = genreInput.value;
+  const read = readInput.checked;
+  const newBooks = new Book(title, author, year, genre, read);
 
   addBookToLibrary(newBooks);
   displayBooks();
